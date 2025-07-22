@@ -1,24 +1,16 @@
-'use client';
-
-import { useEffect } from 'react';
-import { enableSourceHighlighting } from 'gaze/runtime';
+import type { ReactNode } from 'react';
+import { GazeInitializer } from './gaze-initializer';
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      const cleanup = enableSourceHighlighting({});
-      return cleanup;
-    }
-  }, []);
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
         {children}
+        {process.env.NODE_ENV === 'development' && <GazeInitializer />}
       </body>
     </html>
   );

@@ -72,6 +72,38 @@ export default nextConfig;
 ```
 
 ```javascript
+// app/layout.tsx (Server Component - recommended approach)
+import { GazeInitializer } from './gaze-initializer';
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        {process.env.NODE_ENV === 'development' && <GazeInitializer />}
+      </body>
+    </html>
+  );
+}
+
+// app/gaze-initializer.tsx (Client Component - isolated from layout)
+'use client';
+
+import { useEffect } from 'react';
+import { enableSourceHighlighting } from 'gaze/runtime';
+
+export function GazeInitializer() {
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      const cleanup = enableSourceHighlighting({});
+      return cleanup;
+    }
+  }, []);
+
+  return null;
+}
+
+// Alternative: All-in-one client-side approach
 // app/layout.tsx
 'use client';
 
