@@ -1,7 +1,7 @@
 {
   "name": "gaze",
-  "version": "1.0.0",
-  "description": "Click-to-code webpack loader for Next.js Turbopack - see exactly where your React components live",
+  "version": "1.0.1",
+  "description": "Click-to-code for Next.js - see exactly where your React components live",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -30,15 +30,43 @@
     "turbopack",
     "webpack-loader",
     "nextjs",
+    "next.js",
+    "nextjs-15",
     "react",
+    "react-19",
     "source-location",
     "debugging",
-    "jsx"
+    "developer-tools",
+    "devtools",
+    "jsx",
+    "click-to-code",
+    "source-maps"
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/gaze.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/gaze/issues"
+  },
+  "homepage": "https://github.com/your-username/gaze#readme",
   "peerDependencies": {
-    "webpack": ">=5.0.0"
+    "webpack": ">=5.0.0",
+    "next": ">=15.0.0",
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "webpack": {
+      "optional": true
+    },
+    "next": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@babel/core": "^7.24.0",
